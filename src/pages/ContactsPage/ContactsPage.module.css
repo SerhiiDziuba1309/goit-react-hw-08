@@ -1,0 +1,12 @@
+.contactsPage {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.head {
+  font-size: 32px;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,15 @@
+.loginPage {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.head {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
