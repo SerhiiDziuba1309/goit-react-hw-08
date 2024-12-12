@@ -49,12 +49,12 @@ const ContactForm = () => {
         <Form className={s.form}>
           <label className={s.label}>
             Name
-            <Field name="name" type="text" className={s.input} />
+            <Field name="name" type="text" className={s.field} />
             <ErrorMessage name="name" component="div" className={s.error} />
           </label>
           <label className={s.label}>
             Phone Number
-            <Field name="number" type="text" className={s.input} />
+            <Field name="number" type="text" className={s.field} />
             <ErrorMessage name="number" component="div" className={s.error} />
           </label>
           <button type="submit" className={s.button} disabled={isLoading}>
