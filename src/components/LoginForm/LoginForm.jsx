@@ -9,7 +9,9 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .email('Invalid email format')
     .required('Email is required'),
-  password: Yup.string().required('Password is required'),
+  password: Yup.string()
+    .min(6, 'Password must be at least 6 characters')
+    .required('Password is required'),
 });
 
 const LoginForm = () => {
@@ -29,12 +31,12 @@ const LoginForm = () => {
       <Form className={s.form}>
         <label className={s.label}>
           Email
-          <Field type="email" name="email" className={s.input} />
+          <Field name="email" type="email" className={s.input} />
           <ErrorMessage name="email" component="div" className={s.error} />
         </label>
         <label className={s.label}>
           Password
-          <Field type="password" name="password" className={s.input} />
+          <Field name="password" type="password" className={s.input} />
           <ErrorMessage name="password" component="div" className={s.error} />
         </label>
         <button type="submit" className={s.button}>

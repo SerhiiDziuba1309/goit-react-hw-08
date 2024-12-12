@@ -1,24 +1,24 @@
 .userMenu {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .userName {
-  font-size: 16px;
-  color: #555;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .logoutButton {
-  padding: 5px 10px;
-  font-size: 14px;
+  background-color: #ff4500;
   color: white;
-  background-color: #d9534f;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
+  padding: 5px 10px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .logoutButton:hover {
-  background-color: #c9302c;
+  background-color: #ff6347;
 }

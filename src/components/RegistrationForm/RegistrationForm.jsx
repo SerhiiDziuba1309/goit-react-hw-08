@@ -7,14 +7,15 @@ import s from './RegistrationForm.module.css';
 
 const validationSchema = Yup.object({
   name: Yup.string()
-    .required('Name is required')
-    .min(3, 'Name must be at least 3 characters'),
+    .min(2, 'Name must be at least 2 characters')
+    .max(50, 'Name must be at most 50 characters')
+    .required('Name is required'),
   email: Yup.string()
     .email('Invalid email format')
     .required('Email is required'),
   password: Yup.string()
-    .required('Password is required')
-    .min(6, 'Password must be at least 6 characters'),
+    .min(6, 'Password must be at least 6 characters')
+    .required('Password is required'),
 });
 
 const RegistrationForm = () => {
@@ -34,17 +35,17 @@ const RegistrationForm = () => {
       <Form className={s.form}>
         <label className={s.label}>
           Name
-          <Field type="text" name="name" className={s.input} />
+          <Field name="name" type="text" className={s.input} />
           <ErrorMessage name="name" component="div" className={s.error} />
         </label>
         <label className={s.label}>
           Email
-          <Field type="email" name="email" className={s.input} />
+          <Field name="email" type="email" className={s.input} />
           <ErrorMessage name="email" component="div" className={s.error} />
         </label>
         <label className={s.label}>
           Password
-          <Field type="password" name="password" className={s.input} />
+          <Field name="password" type="password" className={s.input} />
           <ErrorMessage name="password" component="div" className={s.error} />
         </label>
         <button type="submit" className={s.button}>

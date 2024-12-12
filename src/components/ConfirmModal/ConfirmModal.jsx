@@ -6,20 +6,14 @@ const ConfirmModal = ({ isOpen, onClose, onConfirm, message }) => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className={s.modalOverlay}>
-      <div className={s.modalContent}>
-        <p className={s.modalMessage}>{message}</p>
-        <div className={s.modalActions}>
-          <button
-            className={`${s.modalButton} ${s.cancelButton}`}
-            onClick={onClose}
-          >
+    <div className={s.overlay}>
+      <div className={s.modal}>
+        <p className={s.message}>{message}</p>
+        <div className={s.actions}>
+          <button className={`${s.button} ${s.cancel}`} onClick={onClose}>
             Cancel
           </button>
-          <button
-            className={`${s.modalButton} ${s.confirmButton}`}
-            onClick={onConfirm}
-          >
+          <button className={`${s.button} ${s.confirm}`} onClick={onConfirm}>
             Confirm
           </button>
         </div>

@@ -1,14 +1,23 @@
 .nav {
   display: flex;
   gap: 20px;
+  padding: 10px 20px;
+  background-color: #282c34;
+  border-radius: 8px;
 }
 
-.inactive {
-  color: black;
+.navLink {
   text-decoration: none;
+  font-size: 18px;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #61dafb;
 }
 
 .active {
-  color: blue;
-  text-decoration: underline;
+  font-weight: bold;
+  color: #61dafb;
 }

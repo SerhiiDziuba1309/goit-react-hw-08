@@ -15,7 +15,7 @@ const ContactsPage = () => {
 
   return (
     <div className={s.contactsPage}>
-      <h1 className={s.head}>Contacts</h1>
+      <h1 className={s.title}>Your Contacts</h1>
       <ContactForm />
       <SearchBox />
       <ContactList />

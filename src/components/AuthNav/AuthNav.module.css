@@ -3,16 +3,18 @@
   gap: 15px;
 }
 
-.link {
+.authLink {
+  color: #ffffff;
   text-decoration: none;
-  color: white;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.link:hover {
-  text-decoration: underline;
+.authLink:hover {
+  color: #61dafb;
 }
+
 .active {
-  color: #007bff;
-  font-weight: bold;
+  color: #61dafb;
+  text-decoration: underline;
 }

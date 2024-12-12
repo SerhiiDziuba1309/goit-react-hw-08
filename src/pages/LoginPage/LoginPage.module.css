@@ -1,15 +1,16 @@
 .loginPage {
-  max-width: 400px;
-  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #eef2f7;
   padding: 20px;
-  text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
 }
 
-.head {
-  font-size: 28px;
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #34495e;
   margin-bottom: 20px;
-  color: #333;
 }

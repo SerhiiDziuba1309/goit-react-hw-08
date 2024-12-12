@@ -4,21 +4,22 @@ import { selectUser } from '../../redux/auth/selectors';
 import { logout } from '../../redux/auth/operations';
 import s from './UserMenu.module.css';
 
-export const UserMenu = () => {
+const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <div className={s.userMenu}>
       <p className={s.userName}>Welcome, {user.name}</p>
-      <button
-        type="button"
-        className={s.logoutButton}
-        onClick={() => dispatch(logout())}
-      >
+      <button type="button" className={s.logoutButton} onClick={handleLogout}>
         Logout
       </button>
     </div>
   );
 };
+
 export default UserMenu;

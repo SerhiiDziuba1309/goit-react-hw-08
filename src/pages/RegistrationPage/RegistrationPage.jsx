@@ -1,11 +1,11 @@
 import React from 'react';
-import ContactForm from '../../components/ContactForm/ContactForm';
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import s from './RegistrationPage.module.css';
 
 const RegistrationPage = () => (
   <div className={s.registrationPage}>
-    <h1 className={s.head}>Register</h1>
-    <ContactForm />
+    <h1 className={s.title}>Register</h1>
+    <RegistrationForm />
   </div>
 );
 

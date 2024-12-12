@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { refreshUser } from '../redux/auth/operations';
-import { selectIsRefreshing } from '../redux/auth/selectors';
-import Layout from './Layout/Layout';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
-import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
-import HomePage from '../pages/HomePage/HomePage';
-import ContactsPage from '../pages/ContactsPage/ContactsPage';
-import LoginPage from '../pages/LoginPage/LoginPage';
-import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
+import { refreshUser } from '../../redux/auth/operations';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
+import Layout from '../Layout/Layout';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import RestrictedRoute from '../RestrictedRoute/RestrictedRoute';
+import HomePage from '../../pages/HomePage/HomePage';
+import ContactsPage from '../../pages/ContactsPage/ContactsPage';
+import LoginPage from '../../pages/LoginPage/LoginPage';
+import RegistrationPage from '../../pages/RegistrationPage/RegistrationPage';
+import { TailSpin } from 'react-loader-spinner';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,13 @@ const App = () => {
   }, [dispatch]);
 
   if (isRefreshing) {
-    return <p>Loading...</p>;
+    return (
+      <div
+        style={{ display: 'flex', justifyContent: 'center', marginTop: '20vh' }}
+      >
+        <TailSpin height="80" width="80" color="#4fa94d" ariaLabel="loading" />
+      </div>
+    );
   }
 
   return (

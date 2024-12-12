@@ -11,16 +11,23 @@ const ContactList = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [contactToDelete, setContactToDelete] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDeleteClick = id => {
     setContactToDelete(id);
     setModalOpen(true);
   };
 
-  const confirmDelete = () => {
-    dispatch(deleteContact(contactToDelete));
-    setModalOpen(false);
-    setContactToDelete(null);
+  const confirmDelete = async () => {
+    setIsDeleting(true);
+    try {
+      await dispatch(deleteContact(contactToDelete)).unwrap();
+      setModalOpen(false);
+    } catch (error) {
+      console.error('Failed to delete contact:', error.message);
+    } finally {
+      setIsDeleting(false);
+    }
   };
 
   const cancelDelete = () => {
@@ -29,22 +36,23 @@ const ContactList = () => {
   };
 
   if (contacts.length === 0) {
-    return <p>No contacts found.</p>;
+    return <p className={s.noContacts}>No contacts found.</p>;
   }
 
   return (
-    <div>
+    <>
       <ul className={s.list}>
         {contacts.map(({ id, name, number }) => (
           <li key={id} className={s.item}>
-            <p>
-              {name}: {number}
+            <p className={s.contactInfo}>
+              {name}: <span className={s.contactNumber}>{number}</span>
             </p>
             <button
-              className={s.deleteButton}
+              className={s.button}
               onClick={() => handleDeleteClick(id)}
+              disabled={isDeleting && contactToDelete === id}
             >
-              Delete
+              {isDeleting && contactToDelete === id ? 'Deleting...' : 'Delete'}
             </button>
           </li>
         ))}
@@ -55,7 +63,7 @@ const ContactList = () => {
         onConfirm={confirmDelete}
         message="Are you sure you want to delete this contact?"
       />
-    </div>
+    </>
   );
 };
 
